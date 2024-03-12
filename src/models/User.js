@@ -13,7 +13,11 @@ const userSchema = new Schema({
     email: {
         type: String,
         required: true
-    }
+    },
+    roles: [{
+        ref: "Role",
+        type: Schema.Types.ObjectId
+    }]
 },{
     timestamps: true,
     versionKey: false

@@ -2,7 +2,9 @@ import User from '../models/User';
 import { verify_Token } from '../controllers/token.controller';
 
 
+
 // valida si el token es valido
+/*
 export const verifyToken = async (req, res, next) => {
     const token = req.headers['x-access-token'];
     if (!token) return res.status(403).json({ message: "no se ha proporcionado token" });
@@ -24,4 +26,4 @@ export const verifyToken = async (req, res, next) => {
         return res.status(401).json({ message: "token inválido" , token: token});
     }
 };
-
+*/
