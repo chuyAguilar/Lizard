@@ -1,12 +1,36 @@
 import { Router } from "express";
-import * as profesorCtrl from '../controllers/profesor.controller.js';
-
 const router = Router();
 
-router.get('/', profesorCtrl.getProfesores);
-router.get('/:profesorId', profesorCtrl.getProfesorById);
-router.post('/', profesorCtrl.createProfesor);
-router.put('/:profesorId', profesorCtrl.updateProfesor);
-router.delete('/:profesorId', profesorCtrl.deleteProfesor);
+
+/* 
+  #####                                                                       
+ #     #  ####  #    # ##### #####   ####  #      #      ###### #####   ####  
+ #       #    # ##   #   #   #    # #    # #      #      #      #    # #      
+ #       #    # # #  #   #   #    # #    # #      #      #####  #    #  ####  
+ #       #    # #  # #   #   #####  #    # #      #      #      #####       # 
+ #     # #    # #   ##   #   #   #  #    # #      #      #      #   #  #    # 
+  #####   ####  #    #   #   #    #  ####  ###### ###### ###### #    #  ####  
+                                                                              
+*/
+import * as profesorCtrl from '../controllers/profesor.controller.js';
+
+
+
+/*
+ #     #                                                                  
+ ##   ## # #####  #####  #      ###### #    #   ##   #####  ######  ####  
+ # # # # # #    # #    # #      #      #    #  #  #  #    # #      #      
+ #  #  # # #    # #    # #      #####  #    # #    # #    # #####   ####  
+ #     # # #    # #    # #      #      # ## # ###### #####  #           # 
+ #     # # #    # #    # #      #      ##  ## #    # #   #  #      #    # 
+ #     # # #####  #####  ###### ###### #    # #    # #    # ######  ####  
+*/
+import { authJwt } from "../middlewares/index.js";
+
+router.get('/', [authJwt.verifyToken,authJwt.isCostumer],profesorCtrl.getProfesores);
+router.get('/:profesorId',[authJwt.verifyToken,authJwt.isCostumer], profesorCtrl.getProfesorById);
+router.post('/', [authJwt.verifyToken,authJwt.isAdmin],profesorCtrl.createProfesor);
+router.put('/:profesorId',[authJwt.verifyToken,authJwt.isAdmin], profesorCtrl.updateProfesor);
+router.delete('/:profesorId',[authJwt.verifyToken,authJwt.isAdmin], profesorCtrl.deleteProfesor);
 
 export default router;

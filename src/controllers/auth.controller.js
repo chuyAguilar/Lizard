@@ -39,6 +39,21 @@ export const signUp = async (req,res) => {
 }
 
 export const signIn = async (req,res) => {
-    //buscar usuario por correo
-    
+    //verificar correo
+    const userFound = await User.findOne({email: req.body.email}).populate("roles");
+    if(!userFound){
+        console.log(messages.Error);
+        return res.status(400).json({message: messages.notFoundEmail}); 
+    } 
+    //verificar contra
+    const matchPasword = await User.comparePassword(req.body.password, userFound.password);
+    if(!matchPasword){
+        console.log(messages.Error);
+        return res.status(401).json({message: messages.notFoundPassword})
+    } ;
+
+    const generatedToken = await token.signToken(userFound.id);
+    //Usuario encontrado
+    //console.log(userFound);
+    res.status(200).json({generatedToken});
 }

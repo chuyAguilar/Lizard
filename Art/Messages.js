@@ -52,3 +52,26 @@ export const savedUser = `  #####
  #     # #    # #    # #    # #      #    # #    # #      #    # #      #        #      #    # #    #  #  #  #      #    #    #    # #    # #      #   #  
   #####   ####   ####   ####  ######  ####   ####  #       ####  ###### ######   #       ####  #    #   ##   ###### #####      ####   ####  ###### #    # 
                                                                                                                                                           `;
+export const notFoundEmail = `User not found, check your Email`;
+
+export const notFoundPassword = `Incorrect password, try again`;
+
+export const InvalidToken = `Invalid token, generated again`;
+
+export const adminRequired = `Role Admin required`;
+
+export const costumerRequired = `Role costumer required`
+
+
+
+export const Error = ` 
+ #######                             
+ #       #####  #####   ####  #####  
+ #       #    # #    # #    # #    # 
+ #####   #    # #    # #    # #    # 
+ #       #####  #####  #    # #####  
+ #       #   #  #   #  #    # #   #  
+ ####### #    # #    #  ####  #    # 
+                                     `;
+
+
