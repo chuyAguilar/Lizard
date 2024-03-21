@@ -1,6 +1,5 @@
 import * as messages from "./Art/Messages.js";
-
-
+import cors from 'cors';
 import express from 'express';
 const app = express();
 app.use(express.json());
@@ -13,6 +12,16 @@ createRoles();
 app.get('/', (req, res) =>{
     res.send(messages.Welcome)
 });
+
+
+app.use(cors(
+  {
+    origin: "*",
+    methods: ["POST", "GET"],
+    credentials: true
+  }
+))
+
 
 /* 
  ######                             
