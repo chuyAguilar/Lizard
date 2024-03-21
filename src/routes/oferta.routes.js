@@ -36,50 +36,6 @@ router.delete('/:ofertaId', [authJwt.verifyToken,authJwt.isAdmin], ofertaCtrl.de
 
 export default router;
 */
-
-// oferta.routes.js
-/*
-import { Router } from "express";
-import * as ofertaCtrl from "../controllers/oferta.controller.js";
-import { authJwt } from "../middlewares/index.js";
-import OfertaEducativa from "../models/ofertaEducativa.js";
-const router = Router();
-
-// Ruta para obtener todas las ofertas educativas
-router.get("/api/oferta-educativa", async (req, res) => {
-  try {
-    const ofertas = await OfertaEducativa.find();
-    res.json(ofertas);
-  } catch (error) {
-    console.error("Error al obtener ofertas educativas:", error);
-    res.status(500).json({ message: "Error al obtener ofertas educativas" });
-  }
-});
-
-router.get(
-  "/:ofertaId",
-  [authJwt.verifyToken, authJwt.isCostumer],
-  ofertaCtrl.getOfertaById
-);
-router.post(
-  "/",
-  [authJwt.verifyToken, authJwt.isAdmin],
-  ofertaCtrl.createOferta
-);
-router.put(
-  "/:ofertaId",
-  [authJwt.verifyToken, authJwt.isAdmin],
-  ofertaCtrl.updateOferta
-);
-router.delete(
-  "/:ofertaId",
-  [authJwt.verifyToken, authJwt.isAdmin],
-  ofertaCtrl.deleteOferta
-);
-
-export default router;
-*/
-
 // oferta.routes.js
 
 import { Router } from "express";
