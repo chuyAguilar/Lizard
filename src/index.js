@@ -12,8 +12,6 @@ app.listen(port, ()=> {
 });
 
 
-
-
 // Conexión a la base de datos
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
