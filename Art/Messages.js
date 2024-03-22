@@ -60,7 +60,7 @@ export const InvalidToken = `Invalid token, generated again`;
 
 export const adminRequired = `Role Admin required`;
 
-export const costumerRequired = `Role costumer required`
+export const zzzz = `Role customer required`
 
 
 
