@@ -50,7 +50,7 @@ export const isAdmin = async (req,res,next) => {
     return res.status(403).json({message: messages.adminRequired});
 }
 
-export const isCostumer = async(req,res,next) => {
+export const isCustomer = async(req,res,next) => {
  //Busca el usuario en la base de datos
  const user = await User.findById(req.userId);
  //Buscar los roles de el ususario
@@ -66,5 +66,5 @@ export const isCostumer = async(req,res,next) => {
      }
  }
  
- return res.status(403).json({message: messages.costumerRequired});
+ return res.status(403).json({message: messages.customerRequired});
 }
