@@ -27,8 +27,11 @@ app.get('/', (req, res) =>{
 import admisionRoutes from './src/routes/admision.routes.js';
 import authRoutes from './src/routes/auth.routes.js';
 import ofertaRoutes from './src/routes/oferta.routes.js'
+import profesorRoutes from "./src/routes/profesor.routes.js"
 app.use('/api/admision', admisionRoutes);
 app.use('/api/auth',authRoutes);
 app.use('/api/oferta',ofertaRoutes);
+app.use('/api/profesores',profesorRoutes);
+
 
 export default app;
